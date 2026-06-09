@@ -1,0 +1,1 @@
+# group_draw_world_cup_2026
