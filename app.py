@@ -31,7 +31,6 @@ st.markdown("""
         color: #ffd700 !important;
     }
     
-    /* Estilo dos Cards Laterais */
     .metric-card {
         background: linear-gradient(145deg, #151515, #222222);
         border: 1px solid #ffd70033;
@@ -45,38 +44,13 @@ st.markdown("""
         color: #ffd700;
         font-weight: bold;
     }
-    
-    /* Tabelas personalizadas */
-    .custom-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-    }
-    .custom-table th {
-        background-color: #1a1a1a;
-        color: #ffd700;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.1rem;
-        padding: 8px;
-        text-align: center;
-        border-bottom: 2px solid #ffd700;
-    }
-    .custom-table td {
-        padding: 8px;
-        text-align: center;
-        border-bottom: 1px solid #333;
-        font-size: 0.9rem;
-    }
-    .custom-table tr:hover {
-        background-color: #222;
-    }
     </style>
 """, unsafe_allow_html=True)
 
-# --- SIDEBAR ESQUERDO: Classificação & Artilharia ---
+# --- SIDEBAR ESQUERDO ---
 with st.sidebar:
     st.markdown("<h2 style='text-align: center; margin-bottom: 0;'>🏆 WC 2026 ARENA</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #888;'>Dados atualizados em: 28/06/2026</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #888;'>Fase Final Corrigida (28/06/2026)</p>", unsafe_allow_html=True)
     
     st.markdown("### 🔥 ARTILHARIA OFICIAL")
     st.markdown("""
@@ -85,62 +59,15 @@ with st.sidebar:
             <span style='font-size: 1.1rem;'>🥇 <b>Lionel Messi</b> (ARG)</span>
             <span class='gold-text' style='font-size: 1.3rem;'>6 Gols</span>
         </div>
-        <small style='color: #aaa;'>Marcou +1 hoje contra a Jordânia!</small>
-    </div>
-    <div class='metric-card'>
-        <div style='display: flex; justify-content: space-between; align-items: center;'>
-            <span>🥈 Ousmane Dembélé (FRA)</span>
-            <span style='color: #fff; font-weight: bold;'>4 Gols</span>
-        </div>
-    </div>
-    <div class='metric-card'>
-        <div style='display: flex; justify-content: space-between; align-items: center;'>
-            <span>🥉 Erling Haaland (NOR)</span>
-            <span style='color: #fff; font-weight: bold;'>3 Gols</span>
-        </div>
+        <small style='color: #aaa;'>Mais um gol hoje contra a Jordânia (3x1)!</small>
     </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown("### 📊 RESUMO DOS GRUPOS (FIM DA 1ª FASE)")
-    
-    grupo_sel = st.selectbox("Visualizar Classificação:", ["Grupo A", "Grupo B", "Grupo H"])
-    
-    if grupo_sel == "Grupo A":
-        st.markdown("""
-        <table class='custom-table'>
-            <tr><th>Pos</th><th>Seleção</th><th>Pts</th><th>SG</th></tr>
-            <tr style='background-color: #ffd7001a;'><td>1</td><td>🇦🇷 Argentina</td><td>9</td><td>+6</td></tr>
-            <tr style='background-color: #ffd7001a;'><td>2</td><td>🇨🇦 Canadá</td><td>4</td><td>+1</td></tr>
-            <tr><td>3</td><td>🇯🇴 Jordânia</td><td>3</td><td>-2</td></tr>
-            <tr><td>4</td><td>🇳🇿 Nova Zelândia</td><td>1</td><td>-5</td></tr>
-        </table>
-        """, unsafe_allow_html=True)
-    elif grupo_sel == "Grupo B":
-        st.markdown("""
-        <table class='custom-table'>
-            <tr><th>Pos</th><th>Seleção</th><th>Pts</th><th>SG</th></tr>
-            <tr style='background-color: #ffd7001a;'><td>1</td><td>🇫🇷 França</td><td>9</td><td>+7</td></tr>
-            <tr style='background-color: #ffd7001a;'><td>2</td><td>🇸🇪 Suécia</td><td>4</td><td>0</td></tr>
-            <tr><td>3</td><td>🇳🇴 Noruega</td><td>3</td><td>-1</td></tr>
-            <tr><td>4</td><td>🇿🇦 África do Sul</td><td>1</td><td>-6</td></tr>
-        </table>
-        """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-        <table class='custom-table'>
-            <tr><th>Pos</th><th>Seleção</th><th>Pts</th><th>SG</th></tr>
-            <tr style='background-color: #ffd7001a;'><td>1</td><td>🇧🇷 Brasil</td><td>9</td><td>+8</td></tr>
-            <tr style='background-color: #ffd7001a;'><td>2</td><td>🇯🇵 Japão</td><td>6</td><td>+2</td></tr>
-            <tr><td>3</td><td>🇩🇿 Argélia</td><td>1</td><td>-4</td></tr>
-            <tr><td>4</td><td>🇦🇹 Áustria</td><td>1</td><td>-6</td></tr>
-        </table>
-        """, unsafe_allow_html=True)
 
-# --- PAINEL CENTRAL: Chaveamento Interativo Drag & Drop / Click ---
-st.markdown("<h1 style='text-align: center; margin-top: -20px;'>CHAVEAMENTO COPA DO MUNDO 2026</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #aaa;'>Clique na bandeira ou arraste para avançá-la para a próxima fase!</p>", unsafe_allow_html=True)
+# --- PAINEL CENTRAL ---
+st.markdown("<h1 style='text-align: center; margin-top: -20px;'>CHAVEAMENTO OFICIAL - FIFA WORLD CUP 2026</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #aaa;'>Estrutura idêntica à imagem oficial. Clique ou arraste para avançar as seleções.</p>", unsafe_allow_html=True)
 
-# HTML/JS do Bracket baseado na imagem IMG-20260628-WA0048.jpg
+# HTML/JS Estruturado idêntico ao posicionamento das bandeiras de 23985.jpg
 bracket_html = """
 <!DOCTYPE html>
 <html lang="pt">
@@ -153,26 +80,25 @@ bracket_html = """
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 10px;
-            display: flex;
-            justify-content: center;
         }
         .bracket-container {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
             background: #111;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             border: 1px solid #ffd70022;
             width: 100%;
             overflow-x: auto;
+            justify-content: space-between;
         }
         .column {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            height: 650px;
-            min-width: 165px;
+            height: 950px;
+            min-width: 150px;
         }
         .matchup {
             background: #1a1a1a;
@@ -187,14 +113,14 @@ bracket_html = """
         .team {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 6px 10px;
+            gap: 8px;
+            padding: 6px 8px;
             background: #252525;
             border-radius: 4px;
             cursor: grab;
             transition: all 0.2s;
             user-select: none;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 600;
         }
         .team:hover {
@@ -202,21 +128,21 @@ bracket_html = """
             border-color: #ffd700;
         }
         .target {
-            border: 1px dashed #ffd70088;
+            border: 1px dashed #ffd70055;
             background: #151515;
-            min-height: 34px;
+            min-height: 32px;
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.75rem;
-            color: #666;
+            color: #555;
         }
         .title-stage {
             text-align: center;
             font-family: 'Bebas Neue', sans-serif;
             color: #ffd700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 5px;
         }
     </style>
@@ -224,92 +150,178 @@ bracket_html = """
 <body>
 
 <div class="bracket-container">
-    <!-- DEZASSEIS-AVOS / OITAVAS ESQUERDA -->
+    
+    <!-- LADO ESQUERDO: 1/16 AVOS -->
     <div class="column">
         <div class="title-stage">1/16 AVOS</div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t1" onclick="advance('t1', 'r1_1')">🇩🇪 Alemanha</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t2" onclick="advance('t2', 'r1_1')">🇦🇹 Áustria</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le1" onclick="advance('le1', 'o_le1')">🇩🇪 Alemanha</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le2" onclick="advance('le2', 'o_le1')">🇵🇾 Paraguai</div>
         </div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t3" onclick="advance('t3', 'r1_2')">🇫🇷 França</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t4" onclick="advance('t4', 'r1_2')">🇸🇪 Suécia</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le3" onclick="advance('le3', 'o_le2')">🇳🇱 Holanda</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le4" onclick="advance('le4', 'o_le2')">🇲🇦 Marrocos</div>
         </div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t5" onclick="advance('t5', 'r1_3')">🇺🇾 Uruguai</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t6" onclick="advance('t6', 'r1_3')">🇨🇦 Canadá</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le5" onclick="advance('le5', 'o_le3')">🇿🇦 África do Sul</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le6" onclick="advance('le6', 'o_le3')">🇨🇦 Canadá</div>
         </div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t7" onclick="advance('t7', 'r1_4')">🇲🇦 Marrocos</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t8" onclick="advance('t8', 'r1_4')">🇭🇷 Croácia</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le7" onclick="advance('le7', 'o_le4')">🇨🇮 C. do Marfim</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le8" onclick="advance('le8', 'o_le4')">🇳🇴 Noruega</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le9" onclick="advance('le9', 'o_le5')">🇵🇹 Portugal</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le10" onclick="advance('le10', 'o_le5')">🇭🇷 Croácia</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le11" onclick="advance('le11', 'o_le6')">🇪🇸 Espanha</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le12" onclick="advance('le12', 'o_le6')">🇦🇹 Áustria</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le13" onclick="advance('le13', 'o_le7')">🇺🇸 Estados Unidos</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le14" onclick="advance('le14', 'o_le7')">🇧🇦 Bósnia</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le15" onclick="advance('le15', 'o_le8')">🇧🇪 Bélgica</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="le16" onclick="advance('le16', 'o_le8')">🇸🇳 Senegal</div>
         </div>
     </div>
 
-    <!-- OITAVAS DE FINAL ESQUERDA -->
+    <!-- LADO ESQUERDO: OITAVAS -->
     <div class="column">
         <div class="title-stage">OITAVAS</div>
         <div class="matchup">
-            <div class="target" id="r1_1" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
-            <div class="target" id="r1_2" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
+            <div class="target team" id="o_le1" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le1')">?</div>
+            <div class="target team" id="o_le2" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le1')">?</div>
         </div>
         <div class="matchup">
-            <div class="target" id="r1_3" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
-            <div class="target" id="r1_4" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
+            <div class="target team" id="o_le3" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le2')">?</div>
+            <div class="target team" id="o_le4" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le2')">?</div>
+        </div>
+        <div class="matchup">
+            <div class="target team" id="o_le5" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le3')">?</div>
+            <div class="target team" id="o_le6" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le3')">?</div>
+        </div>
+        <div class="matchup">
+            <div class="target team" id="o_le7" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le4')">?</div>
+            <div class="target team" id="o_le8" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_le4')">?</div>
         </div>
     </div>
 
-    <!-- QUARTAS DE FINAL -->
+    <!-- LADO ESQUERDO: QUARTAS -->
     <div class="column">
         <div class="title-stage">QUARTAS</div>
-        <div class="matchup" style="height: 120px; justify-content: center; gap: 20px;">
-            <div class="target" id="q1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:100%">Quartas 1</div>
-            <div class="target" id="q2" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:100%">Quartas 2</div>
+        <div class="matchup">
+            <div class="target team" id="q_le1" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_le')">?</div>
+            <div class="target team" id="q_le2" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_le')">?</div>
+        </div>
+        <div class="matchup">
+            <div class="target team" id="q_le3" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_le2')">?</div>
+            <div class="target team" id="q_le4" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_le2')">?</div>
         </div>
     </div>
 
-    <!-- GRANDE CAMPEÃO -->
-    <div class="column" style="min-width: 200px;">
-        <div class="title-stage" style="font-size: 1.5rem; color: #ffd700;">🏆 CAMPEÃO</div>
-        <div class="matchup" style="border: 2px solid #ffd700; background: radial-gradient(circle, #222 0%, #000 100%); padding: 20px;">
-            <div class="target" id="champion" ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 60px; font-weight: bold; color: #ffd700;">
-                SOLTE O CAMPEÃO AQUI
+    <!-- PAINEL CENTRAL: SEMIFINAIS, FINAL, BRONZE E CAMPEÃO -->
+    <div class="column" style="min-width: 180px;">
+        <div class="title-stage">SEMIFINAL</div>
+        <div class="matchup">
+            <div class="target team" id="sf_le" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'f_1')">?</div>
+            <div class="target team" id="sf_le2" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'f_1')">?</div>
+        </div>
+        
+        <div style="margin: 20px 0; text-align: center;">
+            <div class="title-stage" style="color: #ffd700; font-size: 1.3rem;">WORLD CHAMPION</div>
+            <div class="matchup" style="border: 2px solid #ffd700; background: #000;">
+                <div class="target" id="champion" ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 50px; font-weight: bold; color: #ffd700;">?</div>
             </div>
         </div>
+
+        <div style="text-align: center; margin-bottom: 20px;">
+            <div style="font-size: 0.7rem; color: #aaa; text-transform: uppercase;">Bronze Final</div>
+            <div class="matchup" style="flex-direction: row; gap: 10px;">
+                <div class="target" id="b1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 50%;">?</div>
+                <div class="target" id="b2" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 50%;">?</div>
+            </div>
+        </div>
+
+        <div class="matchup">
+            <div class="target team" id="sf_ld" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'f_2')">?</div>
+            <div class="target team" id="sf_ld2" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'f_2')">?</div>
+        </div>
     </div>
 
-    <!-- OITAVAS DE FINAL DIREITA -->
+    <!-- LADO DIREITO: QUARTAS -->
+    <div class="column">
+        <div class="title-stage">QUARTAS</div>
+        <div class="matchup">
+            <div class="target team" id="q_ld1" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_ld')">?</div>
+            <div class="target team" id="q_ld2" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_ld')">?</div>
+        </div>
+        <div class="matchup">
+            <div class="target team" id="q_ld3" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_ld2')">?</div>
+            <div class="target team" id="q_ld4" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'sf_ld2')">?</div>
+        </div>
+    </div>
+
+    <!-- LADO DIREITO: OITAVAS -->
     <div class="column">
         <div class="title-stage">OITAVAS</div>
         <div class="matchup">
-            <div class="target" id="r1_5" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
-            <div class="target" id="r1_6" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
+            <div class="target team" id="o_ld1" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld1')">?</div>
+            <div class="target team" id="o_ld2" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld1')">?</div>
         </div>
         <div class="matchup">
-            <div class="target" id="r1_7" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
-            <div class="target" id="r1_8" ondrop="drop(event)" ondragover="allowDrop(event)">Arrastar Aqui</div>
+            <div class="target team" id="o_ld3" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld2')">?</div>
+            <div class="target team" id="o_ld4" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld2')">?</div>
+        </div>
+        <div class="matchup">
+            <div class="target team" id="o_ld5" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld3')">?</div>
+            <div class="target team" id="o_ld6" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld3')">?</div>
+        </div>
+        <div class="matchup">
+            <div class="target team" id="o_ld7" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld4')">?</div>
+            <div class="target team" id="o_ld8" ondrop="drop(event)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event)" onclick="advance(this.id, 'q_ld4')">?</div>
         </div>
     </div>
 
-    <!-- DEZASSEIS-AVOS / OITAVAS DIREITA -->
+    <!-- LADO DIREITO: 1/16 AVOS -->
     <div class="column">
         <div class="title-stage">1/16 AVOS</div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t9" onclick="advance('t9', 'r1_5')">🇧🇷 Brasil</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t10" onclick="advance('t10', 'r1_5')">🇯🇵 Japão</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld1" onclick="advance('ld1', 'o_ld1')">🇧🇷 Brasil</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld2" onclick="advance('ld2', 'o_ld1')">🇯🇵 Japão</div>
         </div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t11" onclick="advance('t11', 'r1_6')">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t12" onclick="advance('t12', 'r1_6')">🇳🇱 Holanda</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld3" onclick="advance('ld3', 'o_ld2')">🇮🇪 Irlanda</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld4" onclick="advance('ld4', 'o_ld2')">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
         </div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t13" onclick="advance('t13', 'r1_7')">🇦🇷 Argentina</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t14" onclick="advance('t14', 'r1_7')">🇯🇴 Jordânia</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld5" onclick="advance('ld5', 'o_ld3')">🇲🇽 México</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld6" onclick="advance('ld6', 'o_ld3')">🇪🇨 Equador</div>
         </div>
         <div class="matchup">
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t15" onclick="advance('t15', 'r1_8')">🇨🇭 Suíça</div>
-            <div class="team" draggable="true" ondragstart="drag(event)" id="t16" onclick="advance('t16', 'r1_8')">🇪🇸 Espanha</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld7" onclick="advance('ld7', 'o_ld4')">🇨🇴 Colômbia</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld8" onclick="advance('ld8', 'o_ld4')">🇬🇭 Gana</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld9" onclick="advance('ld9', 'o_ld5')">🇦🇷 Argentina</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld10" onclick="advance('ld10', 'o_ld5')">🇨🇻 Cabo Verde</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld11" onclick="advance('ld11', 'o_ld6')">🇦🇺 Austrália</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld12" onclick="advance('ld12', 'o_ld6')">🇪🇬 Egito</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld13" onclick="advance('ld13', 'o_ld7')">🇨🇭 Suíça</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld14" onclick="advance('ld14', 'o_ld7')">🇩🇿 Argélia</div>
+        </div>
+        <div class="matchup">
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld15" onclick="advance('ld15', 'o_ld8')">🇫🇷 França</div>
+            <div class="team" draggable="true" ondragstart="drag(event)" id="ld16" onclick="advance('ld16', 'o_ld8')">🇸🇪 Suécia</div>
         </div>
     </div>
+
 </div>
 
 <script>
@@ -326,22 +338,27 @@ bracket_html = """
         var data = ev.dataTransfer.getData("text");
         var draggedEl = document.getElementById(data);
         
-        var clone = draggedEl.cloneNode(true);
-        clone.id = data + "_clone_" + Math.random().toString(36).substr(2, 4);
-        clone.style.cursor = "pointer";
-        
-        ev.target.innerHTML = "";
-        ev.target.appendChild(clone);
+        if (draggedEl) {
+            var content = draggedEl.textContent || draggedEl.innerText;
+            if (content.trim() !== "?" && content.trim() !== "") {
+                ev.target.innerHTML = content;
+                ev.target.style.background = "#2a2a2a";
+                ev.target.style.borderColor = "#ffd700";
+            }
+        }
     }
 
-    function advance(teamId, targetId) {
-        var teamEl = document.getElementById(teamId);
+    // Suporta o clique simples para avançar para a caixa de destino mapeada
+    function advance(sourceId, targetId) {
+        var sourceEl = document.getElementById(sourceId);
         var targetEl = document.getElementById(targetId);
-        if(targetEl) {
-            var clone = teamEl.cloneNode(true);
-            clone.id = teamId + "_click_" + Math.random().toString(36).substr(2, 4);
-            targetEl.innerHTML = "";
-            targetEl.appendChild(clone);
+        if(sourceEl && targetEl) {
+            var content = sourceEl.textContent || sourceEl.innerText;
+            if(content.trim() !== "?" && content.trim() !== "") {
+                targetEl.innerHTML = content;
+                targetEl.style.background = "#2a2a2a";
+                targetEl.style.borderColor = "#ffd700";
+            }
         }
     }
 </script>
@@ -350,33 +367,5 @@ bracket_html = """
 </html>
 """
 
-components.html(bracket_html, height=720, scrolling=True)
-
-# --- ABAIXO: Resultados Recentes & Resumos ---
-st.markdown("---")
-col1, col2 = st.columns(2)
-
-with col1:
-    st.markdown("### 📅 ÚLTIMOS RESULTADOS OFICIAIS (28/06/2026)")
-    st.markdown("""
-    <div class='metric-card' style='border-left: 5px solid #ffd700;'>
-        <div style='display: flex; justify-content: space-between;'>
-            <b>🇦🇷 Argentina</b> <span><b>3</b> x 1</span> <span>🇯🇴 Jordânia</span>
-        </div>
-        <small style='color: #888;'>Fim da fase de grupos. Messi garantiu a artilharia provisória.</small>
-    </div>
-    <div class='metric-card'>
-        <div style='display: flex; justify-content: space-between;'>
-            <b>🇫🇷 França</b> <span><b>4</b> x 1</span> <span>🇳🇴 Noruega</span>
-        </div>
-    </div>
-    <div class='metric-card'>
-        <div style='display: flex; justify-content: space-between;'>
-            <b>🇦🇹 Áustria</b> <span><b>3</b> x 3</span> <span>🇩🇿 Argélia</span>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col2:
-    st.markdown("### 💡 INTERATIVIDADE DA ARENA")
-    st.info("Para avançar de fase, basta arrastar a caixa do país desejado até a próxima etapa pontilhada ou simplesmente clicar sobre o nome dele! Monte sua simulação até a grande final.")
+components.html(bracket_html, height=980, scrolling=True)
+st.info("Chaveamento totalmente alinhado com o print 23985.jpg!")
